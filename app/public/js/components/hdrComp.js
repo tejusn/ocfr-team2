@@ -12,24 +12,18 @@ Vue.component('page-header', {
                         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
+                        <a class="nav-link" href="html/certs.html">Certifications</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Members</a>
                       </li>
                     </ul>
 
                   </div>
                 </nav>
-              </header>`,
-	data() {
-		return { checked: false, title: 'Check me' }
-	},
-	methods: {
-		check() { this.checked = !this.checked; }
-	}
+              </header>`
 });
 
 new Vue({
-  el: '#app'
-})
+  el: '#hdr'
+});

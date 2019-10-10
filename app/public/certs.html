@@ -5,10 +5,13 @@
 
   <title>OCFR Certifications</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/site.css">
+  <link rel="stylesheet" href="./css/site.css">
 </head>
 
 <body>
+  <div id="hdr">
+    <page-header></page-header>
+  </div>
   <h1>Certifications</h1>
   <br>
   <p1>Select a certification from table below to view lists of users that are active and inactive for the selected certification. You can also add a new certification below.</p1>
@@ -95,10 +98,13 @@
 
     </div>
   </div>
+  <div id="ftr">
+    <page-footer></page-footer>
+  </div>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  <script src="js/waiting.app.js"></script>
-  <script src="js/record.app.js"></script>
-  <script src="js/triage.app.js"></script>
+  <script src="../js/components/hdrComp.js"></script>
+  <script src="../js/components/ftrComp.js"></script>
+
 </body>
 
 </html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>OCFR Members</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/site.css">
+</head>
+
+
+<div class="container">
+  <div class="row">
+    <div id="mainContent" class="col-md">
+      <div id="memberTableApp">
+        <form @submit.prevent="handleSubmit">
+
+          <div class="form-group row">
+            <label for="inputFirstName" class="col-sm-2 col-form-label">First Name</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="inputFirstName" placeholder="First Name" v-model="member.firstName">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="inputLastName" class="col-sm-2 col-form-label">Last Name</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="inputLastName" placeholder="Last Name" v-model="member.lastName">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="inputPosition" class="col-sm-2 col-form-label">Position</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="inputPosition" placeholder="Position" v-model="member.position">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="inputStation" class="col-sm-2 col-form-label">Station</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="inputStation" placeholder="Station" v-model="member.station">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="inputDob" class="col-sm-2 col-form-label">DOB</label>
+            <div class="col-sm-10">
+              <input type="date" class="form-control" id="inputDob" placeholder="2001-12-13" v-model="member.dob">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="inputGender" class="col-sm-2 col-form-label">Gender</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="inputGender" placeholder="M|F" v-model="member.gender">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="inputAddress" class="col-sm-2 col-form-label">Address</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="inputAddress" placeholder="Address" v-model="member.address">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="inputActive" class="col-sm-2 col-form-label">Active Status</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="inputActiveStatus" placeholder="Yes|No" v-model="member.activeStatus">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="inputPhone" class="col-sm-2 col-form-label">Mobile Phone Number</label>
+            <div class="col-sm-10">
+              <input type="tel" class="form-control" id="inputphone" placeholder="XXX-XXX-XXXX" v-model="member.phoneNumber">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="inputStartDate" class="col-sm-2 col-form-label">Start Date</label>
+            <div class="col-sm-10">
+              <input type="date" class="form-control" id="inputStartDate" placeholder="2001-12-13" v-model="member.startDate">
+            </div>
+          </div>
+
+
+
+
+          <div class="form-group row">
+            <div class="col-sm-10">
+              <button type="submit" class="btn btn-primary">Add New Member</button>
+            </div>
+          </div>
+        </form>
+
+        <table class="table table-sm table-hover">
+          <thead>
+            <tr>
+              <th>Member ID</th>
+              <th>First</th>
+              <th>Last</th>
+              <th>Station</th>
+              <th>Active Status</th>
+              <th>Radio Number</th>
+
+          </thead>
+          <tbody>
+            <tr v-for="m in members" @click="handleRowClick(p)">
+              <td>{{ m.memberID}}</td>
+              <td>{{ m.firstName }}</td>
+              <td>{{ m.lastName }}</td>
+              <td>{{ m.station}}</td>
+              <td>{{ m.activeStatus }}</td>
+              <td>{{ m.radioNumber }}</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+
+      </html>

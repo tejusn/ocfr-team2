@@ -7,7 +7,11 @@
   <link rel="stylesheet" href="css/site.css">
 </head>
 
+<body>
 
+<h1> Members </h1>
+<p1> Here you can view all members of Oconee County Fire Rescue. You can also add, edit, and delete members. </p1>
+<br><br><hr><br>
 <div class="container">
   <div class="row">
     <div id="mainContent" class="col-md">
@@ -85,14 +89,20 @@
           </div>
 
 
-
+          <br>
 
           <div class="form-group row">
             <div class="col-sm-10">
+
               <button type="submit" class="btn btn-primary">Add New Member</button>
             </div>
           </div>
         </form>
+
+
+        <br>
+        <hr>
+
 
         <table class="table table-sm table-hover">
           <thead>
@@ -103,20 +113,35 @@
               <th>Station</th>
               <th>Active Status</th>
               <th>Radio Number</th>
+              <th> Edit </th>
+              <th> Delete </th>
 
           </thead>
           <tbody>
             <tr v-for="m in members" @click="handleRowClick(p)">
-              <td>{{ m.memberID}}</td>
-              <td>{{ m.firstName }}</td>
-              <td>{{ m.lastName }}</td>
-              <td>{{ m.station}}</td>
-              <td>{{ m.activeStatus }}</td>
-              <td>{{ m.radioNumber }}</td>
+              <td>MEM-111-0001</td>
+              <td>John</td>
+              <td>Peters</td>
+              <td>Station 1</td>
+              <td>Active</td>
+              <td>267</td>
+              <td>   <button type="submit" class="btn btn-primary">Edit</button></td>
+              <td>   <button type="submit" class="btn btn-primary">Delete</button></td>
+            </tr>
+            <tr>
+              <td> MEM-111-0002 </td>
+              <td> Steven </td>
+              <td> Finnigan </td>
+              <td> Station 1 </td>
+              <td> Active </td>
+              <td> 268 </td>
+              <td>   <button type="submit" class="btn btn-primary">Edit</button> </td>
+              <td>   <button type="submit" class="btn btn-primary">Delete</button></td>
             </tr>
           </tbody>
         </table>
 
       </div>
+    </body>
 
       </html>

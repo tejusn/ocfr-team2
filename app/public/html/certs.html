@@ -8,68 +8,83 @@
   <link rel="stylesheet" href="css/site.css">
 </head>
 
-<div class="container">
-  <div class="row">
-    <div id="mainContent" class="col-md">
-      <div id="patientRecordsApp">
-        <form @submit.prevent="handleSubmit">
-          <div class="form-group row">
-            <label for="inputFirstName" class="col-sm-2 col-form-label">First Name</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" id="inputFirstName" placeholder="First Name" v-model="recordPatient.firstName">
-
-  
 <body>
+  <h1>Certifications</h1>
+  <br>
+  <p1>Select a certification from table below to view lists of users that are active and inactive for the selected certification. You can also add a new certification below.</p1>
+    <br><br><hr><br>
   <div class="container">
     <div class="row">
       <div id="mainContent" class="col-md">
         <div id="patientRecordsApp">
           <form @submit.prevent="handleSubmit">
-            <div class="form-group row">
-              <label for="inputFirstName" class="col-sm-2 col-form-label">Certification Name</label>
-              <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputFirstName" placeholder="e.g. HAZMAT" v-model="recordPatient.firstName">
-              </div>
-
-            </div>
 
             <div class="form-group row">
-              <label for="inputLastName" class="col-sm-2 col-form-label">Standard Duration</label>
+              <label for="inputCertID" class="col-sm-2 col-form-label">Certification ID</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputLastName" placeholder="# of Months" v-model="recordPatient.lastName">
+                <input type="text" class="form-control" id="inputCertID" placeholder="e.g. CERT-0001" v-model="recordCert.certID">
               </div>
             </div>
 
             <div class="form-group row">
-              <label for="inputDob" class="col-sm-2 col-form-label">Specific Expiration Date</label>
+              <label for="inputCertName" class="col-sm-2 col-form-label">Certification Name</label>
               <div class="col-sm-10">
-                <input type="date" class="form-control" id="inputDob" placeholder="2020-12-19" v-model="recordPatient.dob">
+                <input type="text" class="form-control" id="inputCertName" placeholder="e.g. HAZMAT" v-model="recordCert.certName">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="inputCertAgency" class="col-sm-2 col-form-label">Certifying Agency</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputCertAgency" placeholder="e.g. NFPA" v-model="recordCert.certAgency">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="inputDoe" class="col-sm-2 col-form-label">Default Expiration Period</label>
+              <div class="col-sm-10">
+                <input type="date" class="form-control" id="inputCertDoe" placeholder="2020-12-19" v-model="recordCert.doe">
               </div>
             </div>
 
 
-
+<br>
             <div class="form-group row">
               <div class="col-sm-10">
                 <button type="submit" class="btn btn-primary">Add Certification</button>
               </div>
             </div>
           </form>
-
+<br><hr>
           <table class="table table-sm table-hover">
             <thead>
               <tr>
+                <th>Certification ID</th>
                 <th>Certification Name</th>
-                <th>Standard Duration</th>
-                <th>Specific Expiration Date</th>
+                <th>Certifying Agency</th>
+                <th>Default Expiration Date</th>
+                <th>Edit</th>
+                <th>Delete</th>
               </tr>
             </thead>
             <tbody>
               <tr v-for="p in patients" @click="handleRowClick(p)">
-                <td>{{ p.patientGuid }}</td>
-                <td>{{ p.firstName }}</td>
-                <td>{{ p.lastName }}</td>
+                <td>CERT-001</td>
+                <td>CFPS</td>
+                <td>NFPA</td>
+                <td>2021-01-01</td>
+                <td><button type="submit" class="btn btn-primary">Edit</button></td>
+                <td><button type="submit" class="btn btn-primary">Delete</button></td>
               </tr>
+              <tr v-for="p in patients" @click="handleRowClick(p)">
+                <td>CERT-002</td>
+                <td>CFI</td>
+                <td>NFPA</td>
+                <td>2022-01-01</td>
+                <td><button type="submit" class="btn btn-primary">Edit</button></td>
+                <td><button type="submit" class="btn btn-primary">Delete</button></td>
+              </tr>
+
             </tbody>
           </table>
 

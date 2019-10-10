@@ -33,3 +33,36 @@
   border-left-color: blue;
   border-left-width: 6px;
 }
+
+.greeting {
+  color: red;
+  padding-left: 15px;
+}
+
+.introduction {
+  font-size: 200%;
+  padding-left: 5px;
+}
+
+.contactInfo {
+  color: red;
+  padding-left: 15px;
+
+}
+
+.contactDetails {
+  font-size: 150%;
+  padding-left: 5px;
+
+}
+
+.carousel-item.active {
+  height: 50%;
+  width:100%;
+
+}
+.carousel-item {
+  height: 50%;
+  width:100%;
+
+}

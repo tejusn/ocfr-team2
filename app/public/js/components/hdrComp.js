@@ -17,6 +17,9 @@ Vue.component('page-header', {
                       <li class="nav-item">
                         <a class="nav-link" href="members.html" tabindex="-1" aria-disabled="true">Members</a>
                       </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="assignCert.html" tabindex="-1" aria-disabled="true">Assign Certification</a>
+                      </li>
                     </ul>
 
                   </div>

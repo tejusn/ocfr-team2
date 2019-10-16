@@ -19,8 +19,8 @@
   <div class="container">
     <div class="row">
       <div id="mainContent" class="col-md">
-        <div id="patientRecordsApp">
-          <form @submit.prevent="handleSubmit">
+        <div id="certsRecordsApp">
+          <!-- <form @submit.prevent="handleSubmit">
 
             <div class="form-group row">
               <label for="inputCertID" class="col-sm-2 col-form-label">Certification ID</label>
@@ -48,7 +48,7 @@
               <div class="col-sm-10">
                 <input type="date" class="form-control" id="inputCertDoe" placeholder="2020-12-19" v-model="recordCert.doe">
               </div>
-            </div>
+            </div> -->
 
 
 <br>
@@ -71,7 +71,16 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="p in patients" @click="handleRowClick(p)">
+              <tr v-for="c in certs" @click="handleRowClick(c)">
+                <td> {{c.certification_id}} </td>
+                <td> {{c.certification_name}} </td>
+                <td> {{c.certifying_agency}} </td>
+                <td> {{c.default_exp_period}} </td>
+
+                <td>   <button type="submit" class="btn btn-primary">Edit</button> </td>
+                <td>   <button type="submit" class="btn btn-primary">Delete</button></td>
+              </tr>
+              <!-- <tr v-for="p in patients" @click="handleRowClick(p)">
                 <td>CERT-001</td>
                 <td>CFPS</td>
                 <td>NFPA</td>
@@ -86,7 +95,7 @@
                 <td>2022-01-01</td>
                 <td><button type="submit" class="btn btn-primary">Edit</button></td>
                 <td><button type="submit" class="btn btn-primary">Delete</button></td>
-              </tr>
+              </tr> -->
 
             </tbody>
           </table>
@@ -104,7 +113,7 @@
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="../js/components/hdrComp.js"></script>
   <script src="../js/components/ftrComp.js"></script>
-
+  <script src="../js/certs.app.js"></script>
 </body>
 
 </html>

@@ -4,16 +4,12 @@
 $db = DbConnection::getConnection();
 
 // Step 2: Create & run the query
-$stmt = $db->prepare(
-  'SELECT *
-  FROM Patient p, PatientVisit pv
-  WHERE p.patientGuid = pv.patientGuid'
-);
+$stmt = $db->prepare('SELECT certification_name FROM Certification');
 $stmt->execute();
-$patients = $stmt->fetchAll();
+$certs = $stmt->fetchAll();
 
 // Step 3: Convert to JSON
-$json = json_encode($patients, JSON_PRETTY_PRINT);
+$json = json_encode($certs, JSON_PRETTY_PRINT);
 
 // Step 4: Output
 header('Content-Type: application/json');

@@ -1,17 +1,17 @@
-var membersContactApp = new Vue({
-  el: '#membersContactApp',
+var membersExpCertsApp = new Vue({
+  el: '#membersExpCertsApp',
   data: {
-    memContacts: [],
+    memExpCerts: [],
     filter: {
-      station: ''
+      certification_name: ''
     }
     //recordMember: {}
   },
   methods: {
-    fetchMembersContacts() {
-      fetch('api/reports/membersContact.php')
+    fetchMembersExpCerts() {
+      fetch('api/reports/membersExpCerts.php')
       .then(response => response.json())
-      .then(json => { membersContactApp.memContacts = json })
+      .then(json => { membersContactApp.memExpCerts = json })
     },
     handleSubmit(event) {
       // fetch('api/records/post.php', {
@@ -43,6 +43,6 @@ var membersContactApp = new Vue({
   }, // end methods
   created() {
     //this.handleReset();
-    this.fetchMembersContacts();
+    this.fetchMembersExpCerts();
   }
 });

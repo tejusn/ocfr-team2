@@ -11,24 +11,27 @@
   <div id="hdr">
     <page-header></page-header>
   </div>
-<h1>Members Contact Page </h1>
-<p1> Here you can view members' fire station, radio number, and email address</p1>
+<h1>Members with Expired Certifications </h1>
+<p1> Here you can view all members with expired certifications</p1>
 <br><br><hr><br>
 
 <div class="container">
   <div class="row">
     <div id="mainContent" class="col-md">
-      <div id="membersContactApp">
+      <div id="membersExpCertsApp">
 
         <br>
         <hr>
 
 
         <div class="filter">
-              <select v-model="filter.station">
+              <select v-model="filter.certification_name">
                 <option value="">(all)</option>
-                <option>Station 1</option>
-                <option>Station 2</option>
+                <option>CFPS</option>
+                <option>CPR</option>
+                <option>CFI</option>
+                <option>EMT</option>
+                <option>POST</option>
               </select>
           </div>
         <table class="table table-sm table-hover">
@@ -37,21 +40,19 @@
               <th>Member ID</th>
               <th>First</th>
               <th>Last</th>
-              <th>Station</th>
-              <th>Radio Number</th>
-              <th> Email </th>
-
+              <th>Certification Name</th>
+              <th>Expiration Date</th>
 
           </thead>
           <tbody>
-            <tr v-for="mc in memContacts" @click="handleRowClick(mc)"
-            v-show="filter.station=='' || filter.station==mc.station">
-              <td> {{mc.member_id}} </td>
-              <td> {{mc.first_name}} </td>
-              <td> {{mc.last_name}} </td>
-              <td> {{mc.station}} </td>
-              <td> {{mc.radio_number}}</td>
-              <td> {{mc.email}} </td>
+            <tr v-for="mec in memExpCerts" @click="handleRowClick(mec)"
+            v-show="filter.certification_name=='' || filter.expcerts==mec.certification_name">
+              <td> {{mec.member_id}} </td>
+              <td> {{mec.first_name}} </td>
+              <td> {{mec.last_name}} </td>
+              <td> {{mec.certification_name}} </td>
+              <td> {{mec.default_exp_period}}</td>
+
 
 
               <!-- <td>MEM-111-0001</td>
@@ -77,13 +78,17 @@
         </table>
 
       </div>
+      </div>
+      </div>
+      </div>
+
       <div id="ftr">
         <page-footer></page-footer>
       </div>
       <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
       <script src="../js/components/hdrComp.js"></script>
       <script src="../js/components/ftrComp.js"></script>
-      <script src="../js/contact.app.js"></script>
+      <script src="../js/expCerts.app.js"></script>
     </body>
 
       </html>

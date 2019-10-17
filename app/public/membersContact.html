@@ -14,6 +14,13 @@
 <h1> Members Contact Page </h1>
 <p1> Here you view members' fire station, radio number, and email address</p1>
 <br><br><hr><br>
+<div class="filter">
+          <select v-model="filter.sab">
+            <option value="">(all)</option>
+            <option>Station 1</option>
+            <option>Station 2</option>
+          </select>
+          </div>
 <div class="container">
   <div class="row">
     <div id="mainContent" class="col-md">
@@ -21,6 +28,8 @@
 
         <br>
         <hr>
+
+
 
         <table class="table table-sm table-hover">
           <thead>

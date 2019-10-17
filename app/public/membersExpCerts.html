@@ -46,7 +46,7 @@
           </thead>
           <tbody>
             <tr v-for="mec in memExpCerts" @click="handleRowClick(mec)"
-            v-show="filter.certification_name=='' || filter.expcerts==mec.certification_name">
+            v-show="filter.certification_name=='' || filter.certification_name==mec.certification_name">
               <td> {{mec.member_id}} </td>
               <td> {{mec.first_name}} </td>
               <td> {{mec.last_name}} </td>

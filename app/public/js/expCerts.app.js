@@ -11,7 +11,7 @@ var membersExpCertsApp = new Vue({
     fetchMembersExpCerts() {
       fetch('api/reports/membersExpCerts.php')
       .then(response => response.json())
-      .then(json => { membersContactApp.memExpCerts = json })
+      .then(json => { membersExpCertsApp.memExpCerts = json })
     },
     handleSubmit(event) {
       // fetch('api/records/post.php', {

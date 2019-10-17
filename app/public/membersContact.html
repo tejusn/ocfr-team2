@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>OCFR Members</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/site.css">
+</head>
+
+<body>
+  <div id="hdr">
+    <page-header></page-header>
+  </div>
+<h1>Members Contact Page </h1>
+<p1> Here you view members' fire station, radio number, and email address</p1>
+<br><br><hr><br>
+<div class="filter">
+          <select v-model="filter.sab">
+            <option value="">(all)</option>
+            <option>Station 1</option>
+            <option>Station 2</option>
+          </select>
+          </div>
+<div class="container">
+  <div class="row">
+    <div id="mainContent" class="col-md">
+      <div id="membersContactApp">
+
+        <br>
+        <hr>
+
+
+
+        <table class="table table-sm table-hover">
+          <thead>
+            <tr>
+              <th>Member ID</th>
+              <th>First</th>
+              <th>Last</th>
+              <th>Station</th>
+              <th>Radio Number</th>
+              <th> Email </th>
+
+
+          </thead>
+          <tbody>
+            <tr v-for="mc in memContacts" @click="handleRowClick(mc)">
+              <td> {{mc.member_id}} </td>
+              <td> {{mc.first_name}} </td>
+              <td> {{mc.last_name}} </td>
+              <td> {{mc.station}} </td>
+              <td> {{mc.radio_number}}</td>
+              <td> {{mc.email}} </td>
+
+
+              <!-- <td>MEM-111-0001</td>
+              <td>John</td>
+              <td>Peters</td>
+              <td>Station 1</td>
+              <td>Active</td>
+              <td>267</td>
+              <td>   <button type="submit" class="btn btn-primary">Edit</button></td>
+              <td>   <button type="submit" class="btn btn-primary">Delete</button></td> -->
+            </tr>
+            <!-- <tr>
+              <td> MEM-111-0002 </td>
+              <td> Steven </td>
+              <td> Finnigan </td>
+              <td> Station 1 </td>
+              <td> Active </td>
+              <td> 268 </td>
+              <td>   <button type="submit" class="btn btn-primary">Edit</button> </td>
+              <td>   <button type="submit" class="btn btn-primary">Delete</button></td>
+            </tr> -->
+          </tbody>
+        </table>
+
+      </div>
+      <div id="ftr">
+        <page-footer></page-footer>
+      </div>
+      <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+      <script src="../js/components/hdrComp.js"></script>
+      <script src="../js/components/ftrComp.js"></script>
+      <script src="../js/contact.app.js"></script>
+    </body>
+
+      </html>

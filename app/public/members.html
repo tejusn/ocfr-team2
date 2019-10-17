@@ -11,7 +11,9 @@
   <div id="hdr">
     <page-header></page-header>
   </div>
+  <div><br><br><br></div>
 <h1> Members </h1>
+<br>
 <p1> Here you can view all members of Oconee County Fire Rescue. You can also add, edit, and delete members. </p1>
 <br><br><hr><br>
 <div class="container">
@@ -117,6 +119,7 @@
               <th>Member ID</th>
               <th>First</th>
               <th>Last</th>
+              <th>Position</th>
               <th>Station</th>
               <th>Active Status</th>
               <th>Radio Number</th>
@@ -130,8 +133,9 @@
               <td> {{m.first_name}} </td>
               <td> {{m.last_name}} </td>
               <td> {{m.position}} </td>
-              <td>  {{m.gender}}</td>
-              <td> {{m.dob}} </td>
+              <td> {{m.station}}</td>
+              <td> {{m.is_active}} </td>
+              <td> {{m.radio_number}} </td>
               <td>   <button type="submit" class="btn btn-primary">Edit</button> </td>
               <td>   <button type="submit" class="btn btn-primary">Delete</button></td>
             </tr>

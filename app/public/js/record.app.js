@@ -11,7 +11,7 @@ var memberRecordsApp = new Vue({
       .then(json => { memberRecordsApp.members = json })
     },
     handleSubmit(event) {
-      fetch('api/records/post.php', {
+      fetch('api/records/addMember.php', {
         method:'POST',
         body: JSON.stringify(this.recordMember),
         headers: {

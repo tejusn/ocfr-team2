@@ -1,0 +1,45 @@
+<?php
+
+// Step 0: Validation
+use Ramsey\Uuid\Uuid;
+$muid = Uuid::uuid4()->toString(); // i.e. 25769c6c-d34d-4bfe-ba98-e0ee856f3e7a
+
+// Step 1: Get a datase connection from our help class
+$db = DbConnection::getConnection();
+
+// Step 2: Create & run the query
+$stmt = $db->prepare(
+  'UPDATE Member SET
+    first_name = ?, last_name = ?, position = ?, gender = ?, dob = ?,
+    address = ?, email = ?, work_phone = ?, mobile_phone = ?, start_date = ?, station = ?, is_active = ?, radio_number = ?
+  WHERE member_id = ?'
+);
+// $sql = "UPDATE articles SET article_title = :title, article_content = :content, article_timestamp = :timestamp
+// WHERE article_id = :id";
+//       $query = $pdo->prepare($sql);
+//
+//       $query->bindValue(":title", $title);
+//       $query->bindValue(":content", $content);
+//       $query->bindValue(":timestamp", time());
+//       $query->bindValue(":id", $id);
+
+$stmt->execute([
+  $_POST['first_name'],
+  $_POST['last_name'],
+  $_POST['position'],
+  $_POST['gender'],
+  $_POST['dob'],
+  $_POST['address'],
+  $_POST['email'],
+  $_POST['work_phone'],
+  $_POST['mobile_phone'],
+  $_POST['start_date'],
+  $_POST['station'],
+  $_POST['is_active'],
+  $_POST['radio_number'],
+  $_POST['member_id'],
+]);
+
+// Step 4: Output
+header('HTTP/1.1 303 See Other');
+header('Location: ../records/?muid='.$muid);

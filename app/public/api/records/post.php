@@ -1,48 +1,37 @@
 <?php
 
-// Step 0: Validate data
+// Step 0: Validation
+use Ramsey\Uuid\Uuid;
+$muid = Uuid::uuid4()->toString(); // i.e. 25769c6c-d34d-4bfe-ba98-e0ee856f3e7a
 
 // Step 1: Get a datase connection from our help class
 $db = DbConnection::getConnection();
 
-// Step 2: Prepare & run the query
+// Step 2: Create & run the query
 $stmt = $db->prepare(
-  'DELETE FROM Member WHERE id=1
+  'INSERT INTO Member
+  (member_id, first_name, last_name, position, gender, dob,
+    address, email, work_phone, mobile_phone, start_date, station, is_active, radio_number)
+  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )'
 );
 
 $stmt->execute([
-  $_DELETE['patientGuid'],
-  $_DELETE['visitDescription'],
-  $_DELETE['priority']
+  $muid,
+  $_POST['first_name'],
+  $_POST['last_name'],
+  $_POST['position'],
+  $_POST['gender'],
+  $_POST['dob'],
+  $_POST['address'],
+  $_POST['email'],
+  $_POST['work_phone'],
+  $_POST['mobile_phone'],
+  $_POST['start_date'],
+  $_POST['station'],
+  $_POST['is_active'],
+  $_POST['radio_number'],
 ]);
 
 // Step 4: Output
 header('HTTP/1.1 303 See Other');
-header('Location: ../waiting/');
-
-//
-
-<?php
-$servername = "localhost";
-$username = "username";
-$password = "password";
-$dbname = "myDB";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-// sql to delete a record
-$sql = "DELETE FROM MyGuests WHERE id=3";
-
-if ($conn->query($sql) === TRUE) {
-    echo "Record deleted successfully";
-} else {
-    echo "Error deleting record: " . $conn->error;
-}
-
-$conn->close();
-?>
+header('Location: ../records/?muid='.$muid);

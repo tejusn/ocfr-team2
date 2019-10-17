@@ -1,11 +1,13 @@
 {
-    "name": "iu-msis/project-triage",
-    "description": "An in-class example project",
+    "name": "iu-msis/ocfr",
+    "description": "Final project",
     "license": "private",
     "authors": [{
-        "name": "Tom Gregory"
+        "name": "Team 2"
     }],
-    "require": {},
+    "require": {
+      "ramsey/uuid": "^3.8"
+    },
     "autoload": {
         "classmap": ["class/DbConnection.php"]
     }

@@ -2,6 +2,9 @@ var membersContactApp = new Vue({
   el: '#membersContactApp',
   data: {
     memContacts: [],
+    filter: {
+      sab: ''
+    }
     //recordMember: {}
   },
   methods: {

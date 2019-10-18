@@ -54,7 +54,8 @@
             </div>
             <label for="inputGender" class="col-sm-2 col-form-label">Gender</label>
             <div class="col-sm-4">
-              <select id="inputGender" v-model="recordMember.gender">
+              <select id="inputGender" class="select-css" v-model="recordMember.gender">
+                <!-- <option selected>Select Value</option> -->
                 <option value="M">Male       </option>
                 <option value="F">Female     </option>
               </select>
@@ -76,9 +77,10 @@
           <div class="form-group row">
             <label for="inputActive" class="col-sm-2 col-form-label">Active Status</label>
             <div class="col-sm-4">
-              <select id="inputActive" v-model="recordMember.is_active">
-                <option value=1>Y</option>
-                <option value=0>N</option>
+              <select id="inputActive" class="select-css" v-model="recordMember.is_active">
+                <!-- <option value='' selected >Select Value</option> -->
+                <option value=1>Yes</option>
+                <option value=0>No</option>
               </select>
             </div>
             <label for="inputRadio" class="col-sm-2 col-form-label">Radio Number</label>
@@ -129,7 +131,8 @@
 
           </thead>
           <tbody>
-            <tr v-for="m in members" @click="handleRowClick(m)">
+            <!-- <tr v-for="m in members" @click="handleRowClick(m)"> -->
+            <tr v-for="m in members">
               <td> {{m.member_id}} </td>
               <td> {{m.first_name}} </td>
               <td> {{m.last_name}} </td>

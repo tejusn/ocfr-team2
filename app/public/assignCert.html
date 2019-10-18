@@ -2,75 +2,70 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>My Page Title</title>
+  <title>Assign Certification</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="css/site.css">
 </head>
 <body>
   <div id="hdr">
     <page-header></page-header>
   </div>
-  <body>
-
-    <div id="hdr">
-      <page-header></page-header>
-    </div>
     <div><br><br><br></div>
 
     <br><h1>Assign a Certification to a Member</h1><br>
     <p>If member name is not available in drop-down, click to add new member below. If Certification name is not available, click to add new certification below.</p>
     <hr><br>
-
+<div class="container">
+  <div id="assignCertsApp">
     <div class="row">
-      <div class="col-sm-6">
+      <div class="col-sm-6"  v-show="!memLoading">
         <div class="card text-center">
-        <div class="card-header">
-          <h3>Choose Member Name</h3>
-            </div><br><br>
-                <div class="dropdown">
-                  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Member Name
-                    <span class="caret"></span></button>
-                      <ul class="dropdown-menu">
-/*  <li><a href="#">INSERT LIST OF ALL MEMBERS</a></li> */
-                      </ul>
-                </div>
-              <br>
-<a href="members.html" >Add New Member</a><br>
-  </div>
-  </div>
-  <div class="col-sm-6">
-    <div class="card text-center">
-    <div class="card-header">
-      <h3>Choose Certification Name</h3>
-        </div><br><br>
-            <div class="dropdown">
-              <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Certification Name
-                <span class="caret"></span></button>
-                  <ul class="dropdown-menu">
-/*  <li><a href="#">INSERT LIST OF ALL CERTIFICATIONS</a></li> */
-                  </ul>
-            </div>
+          <div class="card-header">
+            <h3>Choose Member Name</h3>
+          </div><br><br>
+          <select id="memberName" class="select-css" v-model="memToAssign">
+            <!-- <option selected>Select Value</option> -->
+            <option v-for="member in memberNames" v-bind:value="member.member_id">
+              {{ member.first_name }}&nbsp; {{member.last_name}}
+            </option>
+          </select>
           <br>
-<a href="certs.html" >Add New Certification</a><br>
-</div><br>
-</div>
+          <a href="members.html" >Add New Member</a><br>
+        </div>
+      </div>
+      <div class="col-sm-6" v-show="!certLoading">
+        <div class="card text-center">
+          <div class="card-header">
+            <h3>Choose Certification Name</h3>
 
-<div class="col-md-12 text-center"><br>
-  <button type="submit" class="btn btn-primary">Assign Certification to this Member</button>
-<br><br><hr></div>
+          </div><br><br>
+          <select id="memberName" class="select-css" v-model="certToAssign">
+            <!-- <option selected>Select Value</option> -->
+            <option v-for="cert in certsNames" v-bind:value="cert.certification_id">
+              {{ cert.certification_name }}
+            </option>
+          </select>
+            <br>
+          <a href="certs.html" >Add New Certification</a><br>
+        </div><br>
+      </div>
 
-</div>
+      <div class="col-md-12 text-center"><br>
+      <button v-on:click="assignCertToMember" class="btn btn-primary">Edit</button>
+        <br><br><hr></div>
+      </div>
+    </div>
+  </div>
+      <div id="ftr">
+        <page-footer></page-footer>
+      </div>
+      <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+      <script src="../js/components/hdrComp.js"></script>
+      <script src="../js/components/ftrComp.js"></script>
+      <script src="../js/assignMembers.app.js"></script>
 
-<div id="ftr">
-  <page-footer></page-footer>
-</div>
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script src="../js/components/hdrComp.js"></script>
-<script src="../js/components/ftrComp.js"></script>
-<script src="../js/record.app.js"></script>
-
-</body>
-</html>
+    </body>
+    </html>

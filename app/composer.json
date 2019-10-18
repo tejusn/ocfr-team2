@@ -6,7 +6,8 @@
         "name": "Team 2"
     }],
     "require": {
-      "ramsey/uuid": "^3.8"
+      "ramsey/uuid": "^3.8",
+      "PUGX/shortid-php":"^0.5.1"
     },
     "autoload": {
         "classmap": ["class/DbConnection.php"]

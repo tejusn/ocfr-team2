@@ -14,14 +14,6 @@ $stmt = $db->prepare(
     address = ?, email = ?, work_phone = ?, mobile_phone = ?, start_date = ?, station = ?, is_active = ?, radio_number = ?
   WHERE member_id = ?'
 );
-// $sql = "UPDATE articles SET article_title = :title, article_content = :content, article_timestamp = :timestamp
-// WHERE article_id = :id";
-//       $query = $pdo->prepare($sql);
-//
-//       $query->bindValue(":title", $title);
-//       $query->bindValue(":content", $content);
-//       $query->bindValue(":timestamp", time());
-//       $query->bindValue(":id", $id);
 
 $stmt->execute([
   $_POST['first_name'],
@@ -42,4 +34,4 @@ $stmt->execute([
 
 // Step 4: Output
 header('HTTP/1.1 303 See Other');
-header('Location: ../records/?muid='.$muid);
+header('Location: ../records/?member_id='.member_id);

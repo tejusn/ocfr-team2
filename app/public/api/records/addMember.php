@@ -1,9 +1,10 @@
 <?php
 
 // Step 0: Validation
-use Ramsey\Uuid\Uuid;
-$muid = Uuid::uuid4()->toString(); // i.e. 25769c6c-d34d-4bfe-ba98-e0ee856f3e7a
-
+//use Ramsey\Uuid\Uuid;
+//$muid = Uuid::uuid4()->toString(); // i.e. 25769c6c-d34d-4bfe-ba98-e0ee856f3e7a
+use PUGX\Shortid\Shortid;
+$muid=Shortid::generate(7, null, true);
 // Step 1: Get a datase connection from our help class
 $db = DbConnection::getConnection();
 

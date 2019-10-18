@@ -43,20 +43,31 @@ var memberRecordsApp = new Vue({
         })
         this.mode = "add";
       }
-
       this.handleReset();
     },
     handleReset() {
       this.recordMember = {}
     },
     updateMember(mem){
-      // console.log(mem);
       this.recordMember = mem;
       this.mode = "update";
     },
-    handleRowClick(member) {
-      // memberRecordsApp.member = member;
+    deleteMember(mem){
+      fetch('api/records/deleteMember.php', {
+        method:'POST',
+        body: JSON.stringify(mem),
+        headers: {
+          "Content-Type": "application/json; charset=utf-8"
+        }
+      })
+      .then( response => response.json() )
+      .then( json => { memberRecordsApp.members.push(json[0]) })
+      .catch( err => {
+        console.error('Member Delete POST ERROR:');
+        console.error(err);
+      })
     }
+
   }, // end methods
   created() {
     //this.handleReset();

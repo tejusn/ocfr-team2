@@ -11,8 +11,9 @@
   <div id="hdr">
     <page-header></page-header>
   </div>
-<h1>Members Contact Page </h1><br>
-<p1> Here you can view members' fire station, radio number, and email address</p1>
+<h1>Show Members that have been Certified</h1><br>
+<p1> Here you can view all members that have ever had a certification. Select a Certification from the dropdown below.
+The table below will show members that have had that certification and whether their certification status is active or expired.</p1>
 <br><br><hr><br>
 
 <div class="container">
@@ -20,38 +21,54 @@
     <div id="mainContent" class="col-md">
       <div id="membersContactApp">
 
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Choose a Certification
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">CFPS</a>
+            <a class="dropdown-item" href="#">CPR</a>
+            <a class="dropdown-item" href="#">CFI</a>
+            <a class="dropdown-item" href="#">EMT</a>
+            <a class="dropdown-item" href="#">POST</a>
+          </div>
+        </div>
+
+        //<option>CFPS</option>
+        <option>CPR</option>
+        <option>CFI</option>
+        <option>EMT</option>
+        <option>POST</option>//
         <br>
         <hr>
 
 
         <div class="filter">
-              <select v-model="filter.station">
+              <select v-model="filter.cert_status">
                 <option value="">(all)</option>
-                <option>Station 1</option>
-                <option>Station 2</option>
+                <option>Active</option>
+                <option>Expired</option>
               </select>
           </div>
+
         <table class="table table-sm table-hover">
           <thead>
             <tr>
               <th>Member ID</th>
               <th>First</th>
               <th>Last</th>
-              <th>Station</th>
-              <th>Radio Number</th>
-              <th> Email </th>
-
+              <th>Certification Status</th>
 
           </thead>
+
+
           <tbody>
-            <tr v-for="mc in memContacts" @click="handleRowClick(mc)"
+            <tr v-for="mce in memCerts" @click="handleRowClick(mce)"
             v-show="filter.station=='' || filter.station==mc.station">
-              <td> {{mc.member_id}} </td>
-              <td> {{mc.first_name}} </td>
-              <td> {{mc.last_name}} </td>
-              <td> {{mc.station}} </td>
-              <td> {{mc.radio_number}}</td>
-              <td> {{mc.email}} </td>
+              <td> {{mce.member_id}} </td>
+              <td> {{mce.first_name}} </td>
+              <td> {{mce.last_name}} </td>
+              <td> {{mce.cert_status}}</td>
 
 
               <!-- <td>MEM-111-0001</td>

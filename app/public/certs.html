@@ -2,10 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-
   <title>OCFR Certifications</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="./css/site.css">
+  <link rel="stylesheet" href="css/site.css">
 </head>
 
 <body>
@@ -13,7 +12,7 @@
     <page-header></page-header>
   </div>
   <div><br><br><br></div>
-  <h1>Certifications</h1>
+  <h1>Certifications </h1>
   <br>
   <p1>Select a certification from table below to view lists of users that are active and inactive for the selected certification. You can also add a new certification below.</p1>
     <br><br><hr><br>
@@ -21,45 +20,51 @@
     <div class="row">
       <div id="mainContent" class="col-md">
         <div id="certsRecordsApp">
-          <!-- <form @submit.prevent="handleSubmit">
+
+          <form @submit.prevent="handleSubmit">
 
             <div class="form-group row">
               <label for="inputCertID" class="col-sm-2 col-form-label">Certification ID</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputCertID" placeholder="e.g. CERT-0001" v-model="recordCert.certID">
+                <input type="text" class="form-control" id="inputCertID" placeholder="e.g. CERT-0001" v-model="recordCert.certification_id">
               </div>
             </div>
 
             <div class="form-group row">
               <label for="inputCertName" class="col-sm-2 col-form-label">Certification Name</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputCertName" placeholder="e.g. HAZMAT" v-model="recordCert.certName">
+                <input type="text" class="form-control" id="inputCertName" placeholder="e.g. HAZMAT" v-model="recordCert.certification_name">
               </div>
             </div>
 
             <div class="form-group row">
               <label for="inputCertAgency" class="col-sm-2 col-form-label">Certifying Agency</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputCertAgency" placeholder="e.g. NFPA" v-model="recordCert.certAgency">
+                <input type="text" class="form-control" id="inputCertAgency" placeholder="e.g. NFPA" v-model="recordCert.certifying_agency">
               </div>
             </div>
 
             <div class="form-group row">
               <label for="inputDoe" class="col-sm-2 col-form-label">Default Expiration Period</label>
               <div class="col-sm-10">
-                <input type="date" class="form-control" id="inputCertDoe" placeholder="2020-12-19" v-model="recordCert.doe">
+                <input type="date" class="form-control" id="inputCertDoe" placeholder="2020-12-19" v-model="recordCert.default_exp_period">
               </div>
-            </div> -->
+            </div>
 
 
 <br>
+
             <div class="form-group row">
               <div class="col-sm-10">
-                <button type="submit" class="btn btn-primary">Add Certification</button>
+                <button type="submit" v-if="mode === 'add'" class="btn btn-primary">Add New Certification</button>
+                <button type="submit" v-if="mode === 'update'" class="btn btn-primary">Update Certification</button>
               </div>
             </div>
+
+
           </form>
 <br><hr>
+
           <table class="table table-sm table-hover">
             <thead>
               <tr>
@@ -71,50 +76,29 @@
                 <th>Delete</th>
               </tr>
             </thead>
+
             <tbody>
               <tr v-for="c in certs" @click="handleRowClick(c)">
                 <td> {{c.certification_id}} </td>
                 <td> {{c.certification_name}} </td>
                 <td> {{c.certifying_agency}} </td>
                 <td> {{c.default_exp_period}} </td>
-
-                <td>   <button type="submit" class="btn btn-primary">Edit</button> </td>
-                <td>   <button type="submit" class="btn btn-primary">Delete</button></td>
+                <td><button v-on:click="updateCert(c)" class="btn btn-primary">Edit</button> </td>
+                <td><button v-on:click="deleteCert(c)" class="btn btn-primary">Delete</button></td>
               </tr>
-              <!-- <tr v-for="p in patients" @click="handleRowClick(p)">
-                <td>CERT-001</td>
-                <td>CFPS</td>
-                <td>NFPA</td>
-                <td>2021-01-01</td>
-                <td><button type="submit" class="btn btn-primary">Edit</button></td>
-                <td><button type="submit" class="btn btn-primary">Delete</button></td>
-              </tr>
-              <tr v-for="p in patients" @click="handleRowClick(p)">
-                <td>CERT-002</td>
-                <td>CFI</td>
-                <td>NFPA</td>
-                <td>2022-01-01</td>
-                <td><button type="submit" class="btn btn-primary">Edit</button></td>
-                <td><button type="submit" class="btn btn-primary">Delete</button></td>
-              </tr> -->
-
             </tbody>
           </table>
 
         </div>
-      </div>
-
-
-
-    </div>
-  </div>
   <div id="ftr">
     <page-footer></page-footer>
   </div>
+
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="../js/components/hdrComp.js"></script>
   <script src="../js/components/ftrComp.js"></script>
   <script src="../js/certs.app.js"></script>
+
 </body>
 
 </html>

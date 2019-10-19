@@ -23,12 +23,12 @@
 
           <form @submit.prevent="handleSubmit">
 
-            <div class="form-group row">
+            <!-- <div class="form-group row">
               <label for="inputCertID" class="col-sm-2 col-form-label">Certification ID</label>
               <div class="col-sm-10">
                 <input type="text" class="form-control" id="inputCertID" placeholder="e.g. CERT-0001" v-model="recordCert.certification_id">
               </div>
-            </div>
+            </div> -->
 
             <div class="form-group row">
               <label for="inputCertName" class="col-sm-2 col-form-label">Certification Name</label>
@@ -78,7 +78,7 @@
             </thead>
 
             <tbody>
-              <tr v-for="c in certs" @click="handleRowClick(c)">
+              <tr v-for="c in certs">
                 <td> {{c.certification_id}} </td>
                 <td> {{c.certification_name}} </td>
                 <td> {{c.certifying_agency}} </td>

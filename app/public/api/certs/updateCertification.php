@@ -13,14 +13,7 @@ $stmt = $db->prepare(
     certification_name = ?, certifying_agency = ?, default_exp_period = ?
   WHERE certification_id = ?'
 );
-// $sql = "UPDATE articles SET article_title = :title, article_content = :content, article_timestamp = :timestamp
-// WHERE article_id = :id";
-//       $query = $pdo->prepare($sql);
-//
-//       $query->bindValue(":title", $title);
-//       $query->bindValue(":content", $content);
-//       $query->bindValue(":timestamp", time());
-//       $query->bindValue(":id", $id);
+
 
 $stmt->execute([
   $_POST['certification_name'],

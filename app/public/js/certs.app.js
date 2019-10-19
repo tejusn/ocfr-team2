@@ -13,9 +13,9 @@ var certsRecordsApp = new Vue({
     },
     handleSubmit(event) {
       if(this.mode === "add"){ // add certification logic
-        fetch('api/records/addCertification.php', {
+        fetch('api/certs/addCertification.php', {
           method:'POST',
-          body: JSON.stringify(this.recordCertification),
+          body: JSON.stringify(this.recordCert),
           headers: {
             "Content-Type": "application/json; charset=utf-8"
           }
@@ -28,7 +28,7 @@ var certsRecordsApp = new Vue({
         })
       }
       else{ //update certification logic
-        fetch('api/records/updateCertification.php', {
+        fetch('api/certs/updateCertification.php', {
           method:'POST',
           body: JSON.stringify(this.recordCert),
           headers: {
@@ -54,10 +54,22 @@ var certsRecordsApp = new Vue({
       this.recordCert = cert;
       this.mode = "update";
     },
-    handleRowClick(certification) {
-      // certsRecordsApp.cert = cert;
+    deleteCert(cert){
+      fetch('api/certs/deleteCert.php', {
+        method:'POST',
+        body: JSON.stringify(cert),
+        headers: {
+          "Content-Type": "application/json; charset=utf-8"
+        }
+      })
+      .then( response => response.json() )
+      .then( json => { certsRecordsApp.certs.push(json[0]) })
+      .catch( err => {
+        console.error('Certification Delete POST ERROR:');
+        console.error(err);
+      })
     }
-    }, // end methods
+  }, // end methods
   created() {
     this.fetchCerts();
   }

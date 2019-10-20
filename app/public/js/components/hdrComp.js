@@ -1,8 +1,11 @@
 Vue.component('page-header', {
   	template: `<header>
                 <!-- Fixed navbar -->
-                <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-                  <a class="navbar-brand" href="index.html">OCONEE COUNTY</a>
+              <img class="logoImageHeader" src="../img/OCFR-logo2.jpg">
+                <nav class="navbar navbar-main navbar-expand-lg navbar-sticky navbar-dark bg-dark">
+                  <a class="navbar-brand " href="index.html">
+                    <img class="logoImage" src="../img/OCFR-logo1.jpg">Oconee Fire Rescue
+                  </a>
                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                   </button>
@@ -29,7 +32,7 @@ Vue.component('page-header', {
 
 
 
-                      <li class="nav-item dropdown">
+                      <li class="nav-item dropdown dropdown-animate">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Certifications</a>
                         <div class="dropdown-menu">
                           <a class="dropdown-item" href="certs.html">Show All Certifications</a>

@@ -3,37 +3,26 @@
   background-color: rgb(255,230,230);
 } */
 
-.queueView {
-  border: 2px black solid;
-  background-color: rgb(230,230,230);
-}
 
-.patientWaiting {
-  background-color: white;
-  margin: 6px;
-  padding: 6px;
-  border: 2px solid rgb(200,200,200);
-}
+.logoImage{
+height:90px;
+border-radius: 300px;
+width:10%;
 
-.patientName {
-  font-weight: bold;
 }
-
-.highPriority {
-  border-left-color: red;
-  border-left-width: 6px;
+.logoImageHeader{
+  background-image: url(../img/OCFR-logo2.jpg);
+  height:160px;
+  width:100%;
 }
-
-.mediumPriority {
-  border-left-color: orange;
-  border-left-width: 6px;
+.logoImageFooter{
+  height:8  0px;
+  width:30%;
 }
-
-.lowPriority {
-  border-left-color: blue;
-  border-left-width: 6px;
+.carouselImage{
+  height:530px;
+  width:100%;
 }
-
 .greeting {
   color: red;
   padding-left: 15px;

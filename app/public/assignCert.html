@@ -13,59 +13,71 @@
   <div id="hdr">
     <page-header></page-header>
   </div>
-    <div><br><br><br></div>
+  <div><br><br><br></div>
 
-    <br><h1>Assign a Certification to a Member</h1><br>
-    <p>If member name is not available in drop-down, click to add new member below. If Certification name is not available, click to add new certification below.</p>
-    <hr><br>
-<div class="container">
-  <div id="assignCertsApp">
-    <div class="row">
-      <div class="col-sm-6"  v-show="!memLoading">
-        <div class="card text-center">
-          <div class="card-header">
-            <h3>Choose Member Name</h3>
-          </div><br><br>
-          <select id="memberName" class="select-css" v-model="memToAssign">
-            <!-- <option selected>Select Value</option> -->
-            <option v-for="member in memberNames" v-bind:value="member.member_id">
-              {{ member.first_name }}&nbsp; {{member.last_name}}
-            </option>
-          </select>
-          <br>
-          <a href="members.html" >Add New Member</a><br>
-        </div>
-      </div>
-      <div class="col-sm-6" v-show="!certLoading">
-        <div class="card text-center">
-          <div class="card-header">
-            <h3>Choose Certification Name</h3>
-
-          </div><br><br>
-          <select id="memberName" class="select-css" v-model="certToAssign">
-            <!-- <option selected>Select Value</option> -->
-            <option v-for="cert in certsNames" v-bind:value="cert.certification_id">
-              {{ cert.certification_name }}
-            </option>
-          </select>
+  <br><h1>Assign a Certification to a Member</h1><br>
+  <p>If member name is not available in drop-down, click to add new member below. If Certification name is not available, click to add new certification below.</p>
+  <hr><br>
+  <div class="container">
+    <div id="assignCertsApp">
+      <div class="row" v-show="!memLoading && !certLoading">
+        <div class="col-sm-4">
+          <div class="card text-center">
+            <div class="card-header">
+              <h3>Choose Member Name</h3>
+            </div><br><br>
+            <select id="memberName" class="select-css" v-model="assignInfo.memToAssign">
+              <!-- <option selected>Select Value</option> -->
+              <option v-for="member in memberNames" v-bind:value="member.member_id">
+                {{ member.first_name }}&nbsp; {{member.last_name}}
+              </option>
+            </select>
             <br>
-          <a href="certs.html" >Add New Certification</a><br>
-        </div><br>
-      </div>
-
+            <a href="members.html" >Add New Member</a><br>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="card text-center">
+            <div class="card-header">
+              <h3>Certificate Expiration Date</h3>
+            </div>
+            <div>
+              <br><br>
+              <input type="date" class="form-control" id="inputExpDate" placeholder="2001-12-13" v-model="assignInfo.expDate">
+            </div>
+            <br><br><br>
+          </div>
+          <br>
+        </div>
+        <div class="col-sm-4">
+          <div class="card text-center">
+            <div class="card-header">
+              <h3>Choose Certification Name</h3>
+            </div><br><br>
+            <select id="memberName" class="select-css" v-model="assignInfo.certToAssign">
+            <!-- <option selected>Select Value</option> -->
+              <option v-for="cert in certsNames" v-bind:value="cert.certification_id">
+                {{ cert.certification_name }}
+              </option>
+            </select>
+            <br>
+            <a href="certs.html" >Add New Certification</a><br>
+          </div><br>
+        </div>
       <div class="col-md-12 text-center"><br>
-      <button v-on:click="assignCertToMember" class="btn btn-primary">Edit</button>
-        <br><br><hr></div>
-      </div>
+      <button v-on:click="assignCertToMember" class="btn btn-primary">Assign Certification</button>
+      <br><br><hr></div>
     </div>
-  </div>
-      <div id="ftr">
-        <page-footer></page-footer>
-      </div>
-      <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-      <script src="../js/components/hdrComp.js"></script>
-      <script src="../js/components/ftrComp.js"></script>
-      <script src="../js/assignMembers.app.js"></script>
 
-    </body>
-    </html>
+  </div>
+</div>
+<div id="ftr">
+  <page-footer></page-footer>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="../js/components/hdrComp.js"></script>
+<script src="../js/components/ftrComp.js"></script>
+<script src="../js/assignMembers.app.js"></script>
+
+</body>
+</html>

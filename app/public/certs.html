@@ -22,14 +22,6 @@
         <div id="certsRecordsApp">
 
           <form @submit.prevent="handleSubmit">
-
-            <!-- <div class="form-group row">
-              <label for="inputCertID" class="col-sm-2 col-form-label">Certification ID</label>
-              <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputCertID" placeholder="e.g. CERT-0001" v-model="recordCert.certification_id">
-              </div>
-            </div> -->
-
             <div class="form-group row">
               <label for="inputCertName" class="col-sm-2 col-form-label">Certification Name</label>
               <div class="col-sm-10">
@@ -47,31 +39,25 @@
             <div class="form-group row">
               <label for="inputDoe" class="col-sm-2 col-form-label">Default Expiration Period</label>
               <div class="col-sm-10">
-                <input type="date" class="form-control" id="inputCertDoe" placeholder="2020-12-19" v-model="recordCert.default_exp_period">
+                <input type="number" class="form-control" id="inputCertDoe" placeholder="12" v-model="recordCert.default_exp_period_months">
               </div>
             </div>
-
-
 <br>
-
             <div class="form-group row">
               <div class="col-sm-10">
                 <button type="submit" v-if="mode === 'add'" class="btn btn-primary">Add New Certification</button>
                 <button type="submit" v-if="mode === 'update'" class="btn btn-primary">Update Certification</button>
               </div>
             </div>
-
-
           </form>
 <br><hr>
-
           <table class="table table-sm table-hover">
             <thead>
               <tr>
                 <th>Certification ID</th>
                 <th>Certification Name</th>
                 <th>Certifying Agency</th>
-                <th>Default Expiration Date</th>
+                <th>Certification Validity (Months)</th>
                 <th>Edit</th>
                 <th>Delete</th>
               </tr>
@@ -82,7 +68,7 @@
                 <td> {{c.certification_id}} </td>
                 <td> {{c.certification_name}} </td>
                 <td> {{c.certifying_agency}} </td>
-                <td> {{c.default_exp_period}} </td>
+                <td> {{c.default_exp_period_months}} </td>
                 <td><button v-on:click="updateCert(c)" class="btn btn-primary">Edit</button> </td>
                 <td><button v-on:click="deleteCert(c)" class="btn btn-primary">Delete</button></td>
               </tr>

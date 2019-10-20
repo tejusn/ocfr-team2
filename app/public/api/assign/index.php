@@ -10,19 +10,21 @@ $db = DbConnection::getConnection();
 
 // Step 2: Create & run the query
 $stmt = $db->prepare(
-  'INSERT INTO Certification
-  (certification_id, certification_name, certifying_agency, default_exp_period_months)
+  'INSERT INTO CertificationStatus
+  (certification_status_id, member_id, certification_id, date_of_exp)
   VALUES (?, ?, ?, ? )'
 );
 
 $stmt->execute([
   $cuid,
   //$_POST['certification_id'],
-  $_POST['certification_name'],
-  $_POST['certifying_agency'],
-  $_POST['default_exp_period'],
+  $_POST['memToAssign'],
+  $_POST['certToAssign'],
+  $_POST['expDate'],
 ]);
 
+if( $stmt->rowCount() ) echo $stmt->rowCount() +'add successful';
+ else{echo "failure";}
 // Step 4: Output
-header('HTTP/1.1 303 See Other');
-header('Location: ../certs/?cuid='.$cuid);
+//header('HTTP/1.1 303 See Other');
+//header('Location: ../assign/?cuid='.$cuid);

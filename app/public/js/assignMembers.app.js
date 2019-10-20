@@ -3,8 +3,9 @@ var assignCertsApp = new Vue({
   data: {
     memberNames: ['a','B'],
     certsNames:[],
-    memToAssign:'',
-    certToAssign:'',
+    assignInfo:{},
+    //memToAssign:'',
+    //certToAssign:'',
     memLoading:true,
     certLoading:true
   },
@@ -26,7 +27,21 @@ var assignCertsApp = new Vue({
         })
     },
     assignCertToMember(){
-
+      fetch('api/assign/', {
+        method:'POST',
+        body: JSON.stringify(this.assignInfo),
+        headers: {
+          "Content-Type": "application/json; charset=utf-8"
+        }
+      })
+      .then( response => response.json() )
+      .then( json => {
+      //  assignCertsApp.certs.push(json[0])
+      })
+      .catch( err => {
+        console.error('Assign POST ERROR:');
+        console.error(err);
+      })
     }
   },
   beforeMount() {

@@ -22,77 +22,45 @@ The table below will show members that have had that certification and whether t
 <div class="container">
   <div class="row">
     <div id="mainContent" class="col-md">
-      <div id="membersContactApp">
-
-        <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Choose a Certification
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">CFPS</a>
-            <a class="dropdown-item" href="#">CPR</a>
-            <a class="dropdown-item" href="#">CFI</a>
-            <a class="dropdown-item" href="#">EMT</a>
-            <a class="dropdown-item" href="#">POST</a>
+      <div id="memByCertApp">
+        <div class="row" v-show="!certLoading">
+          <div class="col-sm-4">
+              <select id="memberName" class="select-css" v-model="selectedCertID.certID" @change="fetchMembersByCerts(selectedCertID)">
+                <option v-for="cert in certsNames" v-bind:value="cert.certification_id">
+                  {{ cert.certification_name }}
+                </option>
+              </select>
+            <br><br>
           </div>
+          <div class="col-sm-4">{{selectedCertID.certID}}</div>
         </div>
-
-        //<option>CFPS</option>
-        <option>CPR</option>
-        <option>CFI</option>
-        <option>EMT</option>
-        <option>POST</option>//
         <br>
         <hr>
-
-
-        <div class="filter">
+        <!-- <div class="filter">
               <select v-model="filter.cert_status">
                 <option value="">(all)</option>
                 <option>Active</option>
                 <option>Expired</option>
               </select>
-          </div>
+          </div> -->
 
-        <table class="table table-sm table-hover">
+        <table class="table table-sm table-hover" v-if="membersForCertLoaded">
           <thead>
             <tr>
               <th>Member ID</th>
               <th>First</th>
               <th>Last</th>
               <th>Certification Status</th>
-
           </thead>
 
-
           <tbody>
-            <tr v-for="mce in memCerts" @click="handleRowClick(mce)"
-            v-show="filter.station=='' || filter.station==mc.station">
+            <tr v-for="mce in memCerts">
               <td> {{mce.member_id}} </td>
               <td> {{mce.first_name}} </td>
               <td> {{mce.last_name}} </td>
               <td> {{mce.cert_status}}</td>
-
-
-              <!-- <td>MEM-111-0001</td>
-              <td>John</td>
-              <td>Peters</td>
-              <td>Station 1</td>
-              <td>Active</td>
-              <td>267</td>
-              <td>   <button type="submit" class="btn btn-primary">Edit</button></td>
-              <td>   <button type="submit" class="btn btn-primary">Delete</button></td> -->
             </tr>
-            <!-- <tr>
-              <td> MEM-111-0002 </td>
-              <td> Steven </td>
-              <td> Finnigan </td>
-              <td> Station 1 </td>
-              <td> Active </td>
-              <td> 268 </td>
-              <td>   <button type="submit" class="btn btn-primary">Edit</button> </td>
-              <td>   <button type="submit" class="btn btn-primary">Delete</button></td>
-            </tr> -->
+
           </tbody>
         </table>
 
@@ -100,10 +68,11 @@ The table below will show members that have had that certification and whether t
       <div id="ftr">
         <page-footer></page-footer>
       </div>
+    </div>
       <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
       <script src="../js/components/hdrComp.js"></script>
       <script src="../js/components/ftrComp.js"></script>
-      <script src="../js/contact.app.js"></script>
+      <script src="../js/memByCert.app.js"></script>
     </body>
 
       </html>

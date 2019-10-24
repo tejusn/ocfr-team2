@@ -36,7 +36,7 @@ Vue.component('page-header', {
                     <li class="nav-item dropdown dropdown-animate">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Certifications</a>
                         <div class="dropdown-menu">
-                          <a class="dropdown-item" href="certs.html">Show All Certifications</a>
+                          <a class="dropdown-item" href="certs.html">Add/Del/Edit Certifications</a>
                           <a class="dropdown-item" href="membersByCert.html">Show Members by Certification</a>
                         </div>
                       </li>
@@ -44,7 +44,7 @@ Vue.component('page-header', {
                       <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Members</a>
                         <div class="dropdown-menu">
-                          <a class="dropdown-item" href="members.html">Show All Members</a>
+                          <a class="dropdown-item" href="members.html">Add/Del/Edit Members</a>
                           <a class="dropdown-item" href="certsByMember.html">Show Certifications by Member</a>
                         </div>
                       </li>

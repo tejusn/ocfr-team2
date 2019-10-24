@@ -7,8 +7,12 @@
 .logoImage{
 height:90px;
 border-radius: 300px;
-width:10%;
+width:6%;
 
+}
+.nav-brand-margin{
+    margin-right: -124rem;
+    font-family: cursive;
 }
 .logoImageHeader{
   background-image: url(../img/OCFR-logo2.jpg);

@@ -1,23 +1,24 @@
 Vue.component('page-header', {
   	template: `<header>
                 <!-- Fixed navbar -->
-              <img class="logoImageHeader" src="../img/OCFR-logo2.jpg">
+  <img class="logoImageHeader" src="../img/OCFR-logo2.jpg">
                 <nav class="navbar navbar-main navbar-expand-lg navbar-sticky navbar-dark bg-dark">
-                  <a class="navbar-brand " href="index.html">
+
+                  <a class="navbar-brand nav-brand-margin" href="index.html">
                     <img class="logoImage" src="../img/OCFR-logo1.jpg">Oconee Fire Rescue
                   </a>
                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                   </button>
                   <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <ul class="navbar-nav mr-auto">
+                    <ul class="navbar-nav mx-auto">
 
                       <li class="nav-item">
                         <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
                       </li>
 
 
-                      <li class="nav-item">
+                  <!--    <li class="nav-item">
                         <a class="nav-link" href="certs.html">Certifications</a>
                       </li>
                       <li class="nav-item">
@@ -27,12 +28,12 @@ Vue.component('page-header', {
 
                       <li class="nav-item">
                         <a class="nav-link" href="assignCert.html" tabindex="-1" aria-disabled="true">Assign Certification</a>
-                      </li>
+                      </li> -->
 
 
 
 
-                      <li class="nav-item dropdown dropdown-animate">
+                    <li class="nav-item dropdown dropdown-animate">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Certifications</a>
                         <div class="dropdown-menu">
                           <a class="dropdown-item" href="certs.html">Show All Certifications</a>
@@ -47,7 +48,13 @@ Vue.component('page-header', {
                           <a class="dropdown-item" href="certsByMember.html">Show Certifications by Member</a>
                         </div>
                       </li>
-
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Reports</a>
+                        <div class="dropdown-menu">
+                          <a class="dropdown-item" href="membersContact.html">Member Contact Details</a>
+                          <a class="dropdown-item" href="membersExpCerts.html">Certification Detailsr</a>
+                        </div>
+                      </li>
 
                     </ul>
                   </div>

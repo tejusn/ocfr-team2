@@ -2,10 +2,79 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>OCFR Certifications</title>
+  <title>OCFR Members</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="css/site.css">
 </head>
+
+<body>
+  <div id="hdr">
+    <page-header></page-header>
+  </div>
+<h1>Show Members that have been Certified</h1><br>
+<p1> Here you can view all members that have ever had a certification. Select a Certification from the dropdown below.
+The table below will show members that have had that certification and whether their certification status is active or expired.</p1>
+<br><br><hr><br>
+
+<div class="container">
+  <div class="row">
+    <div id="mainContent" class="col-md">
+      <div id="certMemApp">
+        <div class="row" v-show="!memLoading">
+          <div class="col-sm-4">
+              <select id="memberName" class="select-css" v-model="selectedMemID.member_id" @change="fetchCertsByMembers">
+                <option v-for="member in memNames" v-bind:value="member.member_id">
+                  {{ member.first_name }}&nbsp; {{member.last_name}}
+                </option>
+              </select>
+            <br><br>
+          </div>
+          <div class="col-sm-4">{{selectedMemID.member_id}}</div>
+        </div>
+        <br>
+        <hr>
+        <!-- <div class="filter">
+              <select v-model="filter.cert_status">
+                <option value="">(all)</option>
+                <option>Active</option>
+                <option>Expired</option>
+              </select>
+          </div> -->
+
+        <table class="table table-sm table-hover" v-if="certsForMemberLoaded">
+          <thead>
+            <tr>
+              <th>Certification ID</th>
+              <th>Certification Name</th>
+              <th>Certification Validity</th>
+              <th>Expiration Date</th>
+              <th>Certification Status</th>
+          </thead>
+
+          <tbody>
+            <tr v-for="cert in certsMem">
+              <td> {{cert.certification_id}} </td>
+              <td> {{cert.certification_name}} </td>
+              <td> {{cert.default_exp_period_months}} </td>
+              <td> {{cert.date_of_exp}} </td>
+              <td> {{cert.cert_status}}</td>
+            </tr>
+
+          </tbody>
+        </table>
+
+      </div>
+      <div id="ftr">
+        <page-footer></page-footer>
+      </div>
+    </div>
+      <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+      <script src="../js/components/hdrComp.js"></script>
+      <script src="../js/components/ftrComp.js"></script>
+      <script src="../js/certByMem.app.js"></script>
+    </body>
+
+      </html>

@@ -1,11 +1,9 @@
 Vue.component('page-header', {
   	template: `<header>
                 <!-- Fixed navbar -->
-  <img class="logoImageHeader" src="../img/OCFR-logo2.jpg">
-                <nav class="navbar navbar-main navbar-expand-lg navbar-sticky navbar-dark bg-dark">
-
+                              <nav class="navbar navbar-main navbar-expand-lg navbar-sticky navbar-dark bg-dark">
                   <a class="navbar-brand nav-brand-margin" href="index.html">
-                    <img class="logoImage" src="../img/OCFR-logo1.jpg">Oconee Fire Rescue
+                    <img class="logoImage" src="../img/OCFR-logo1.jpg">     Oconee County Fire Rescue
                   </a>
                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -36,7 +34,7 @@ Vue.component('page-header', {
                     <li class="nav-item dropdown dropdown-animate">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Certifications</a>
                         <div class="dropdown-menu">
-                          <a class="dropdown-item" href="certs.html">Add/Del/Edit Certifications</a>
+                          <a class="dropdown-item" href="certs.html">Add/Delete/Edit Certifications</a>
                           <a class="dropdown-item" href="membersByCert.html">Show Members by Certification</a>
                         </div>
                       </li>
@@ -44,7 +42,7 @@ Vue.component('page-header', {
                       <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Members</a>
                         <div class="dropdown-menu">
-                          <a class="dropdown-item" href="members.html">Add/Del/Edit Members</a>
+                          <a class="dropdown-item" href="members.html">Add/Delete/Edit Members</a>
                           <a class="dropdown-item" href="certsByMember.html">Show Certifications by Member</a>
                         </div>
                       </li>
@@ -52,7 +50,7 @@ Vue.component('page-header', {
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Reports</a>
                         <div class="dropdown-menu">
                           <a class="dropdown-item" href="membersContact.html">Member Contact Details</a>
-                          <a class="dropdown-item" href="membersExpCerts.html">Certification Detailsr</a>
+                          <a class="dropdown-item" href="membersExpCerts.html">Certification Details</a>
                         </div>
                       </li>
 

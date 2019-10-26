@@ -23,20 +23,16 @@
   <div class="row">
     <div id="mainContent" class="col-md">
       <div id="membersExpCertsApp">
-
         <br>
-        <hr>
-
-
-        <div class="filter">
-              <select v-model="filter.certification_name">
-                <option value="">(all)</option>
-                <option>CFPS</option>
-                <option>CPR</option>
-                <option>CFI</option>
-                <option>EMT</option>
-                <option>POST</option>
-              </select>
+          <div v-show="!certLoading">
+            <div class="col-sm-6">
+              Choose Certification to Filter:  <select id="certName" class="select-css" v-model="filter.certification_name">
+                  <option v-for="cert in certsNames">
+                    {{ cert.certification_name }}
+                  </option>
+                </select>
+              <br><br>
+            </div>
           </div>
         <table class="table table-sm table-hover">
           <thead>
@@ -46,7 +42,8 @@
               <th>Last</th>
               <th>Certification Name</th>
               <th>Expiration Date</th>
-
+              <th>Expiration Status</th>
+              <th>Status</th>
           </thead>
           <tbody>
             <tr v-for="mec in memExpCerts" @click="handleRowClick(mec)"
@@ -55,29 +52,10 @@
               <td> {{mec.first_name}} </td>
               <td> {{mec.last_name}} </td>
               <td> {{mec.certification_name}} </td>
-              <td> {{mec.default_exp_period}}</td>
-
-
-
-              <!-- <td>MEM-111-0001</td>
-              <td>John</td>
-              <td>Peters</td>
-              <td>Station 1</td>
-              <td>Active</td>
-              <td>267</td>
-              <td>   <button type="submit" class="btn btn-primary">Edit</button></td>
-              <td>   <button type="submit" class="btn btn-primary">Delete</button></td> -->
+              <td> {{displayWaitingLocalDate(mec.date_of_exp)}}</td>
+              <td>{{ displayWaitingSince(mec.date_of_exp) }}</td>
+              <td :class="expClass"> {{checkIsActiveOrExpired(mec.date_of_exp)}}</td>
             </tr>
-            <!-- <tr>
-              <td> MEM-111-0002 </td>
-              <td> Steven </td>
-              <td> Finnigan </td>
-              <td> Station 1 </td>
-              <td> Active </td>
-              <td> 268 </td>
-              <td>   <button type="submit" class="btn btn-primary">Edit</button> </td>
-              <td>   <button type="submit" class="btn btn-primary">Delete</button></td>
-            </tr> -->
           </tbody>
         </table>
 
@@ -90,6 +68,7 @@
         <page-footer></page-footer>
       </div>
       <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
       <script src="../js/components/hdrComp.js"></script>
       <script src="../js/components/ftrComp.js"></script>
       <script src="../js/expCerts.app.js"></script>

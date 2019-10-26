@@ -51,7 +51,9 @@ The table below will show members that have had that certification and whether t
               <th>Member ID</th>
               <th>First</th>
               <th>Last</th>
-              <th>Certification Status</th>
+              <th>Expiration Date</th>
+              <th>Expiration Status</th>
+              <th>Status</th>
           </thead>
 
           <tbody>
@@ -59,7 +61,9 @@ The table below will show members that have had that certification and whether t
               <td> {{mce.member_id}} </td>
               <td> {{mce.first_name}} </td>
               <td> {{mce.last_name}} </td>
-              <td> {{mce.cert_status}}</td>
+              <td> {{displayWaitingLocalDate(mce.date_of_exp)}}</td>
+              <td>{{ displayWaitingSince(mce.date_of_exp) }}</td>
+              <td :class="expClass"> {{checkIsActiveOrExpired(mce.date_of_exp)}}</td>
             </tr>
 
           </tbody>
@@ -71,6 +75,7 @@ The table below will show members that have had that certification and whether t
       </div>
     </div>
       <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
       <script src="../js/components/hdrComp.js"></script>
       <script src="../js/components/ftrComp.js"></script>
       <script src="../js/memByCert.app.js"></script>

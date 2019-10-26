@@ -9,7 +9,8 @@ var certMemApp = new Vue({
     certsForMemberLoaded:false,
     filter: {
       cert_status: ''
-    }
+    },
+    expClass:'',
   },
   methods: {
     fetchMembers() {
@@ -39,7 +40,23 @@ var certMemApp = new Vue({
         console.error(' member cert POST ERROR:');
         console.error(err);
       });
-    }
+    },
+    displayWaitingLocalDate(d) {
+      return moment.utc(d).local().format("YYYY MMM Do");
+    },
+    displayWaitingSince(d) {
+      return moment.utc(d).local().fromNow();
+    },
+    checkIsActiveOrExpired(d){
+            if(moment(d).diff()>0){
+              this.expClass = 'activeCell';
+              return "Active";
+            }
+            else{
+              this.expClass = 'expCell';
+              return "Expired";
+            }
+        },
   },
   beforeMount() {
     this.fetchMembers();

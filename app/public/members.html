@@ -14,7 +14,7 @@
   <div id="hdr">
     <page-header></page-header>
   </div>
-  <div><br><br><br></div>
+  <div><br><br></div>
 <h1> Members </h1>
 <br>
 <p1> Here you can view all members of Oconee County Fire Rescue. You can also add, edit, and delete members. </p1>
@@ -23,6 +23,11 @@
   <div class="row">
     <div id="mainContent" class="col-md">
       <div id="memberRecordsApp">
+
+        <div class="card">
+        <div class="card-header">
+          New Member Form
+        </div>
         <form @submit.prevent="handleSubmit">
 
           <div class="form-group row">
@@ -116,6 +121,7 @@
             </div>
           </div>
         </form>
+      </div>
         <br>
         <hr>
 

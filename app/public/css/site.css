@@ -16,12 +16,12 @@ background-color: black;
 .logoImage{
 height:90px;
 border-radius: 300px;
-width:6%;
+width:93px;
 
 }
 .nav-brand-margin{
-    margin-right: -124rem;
-    font-family: cursive;
+    /* margin-right: -124rem;
+    font-family: cursive; */
 }
 .logoImageHeader{
   background-image: url(../img/OCFR-logo2.jpg);

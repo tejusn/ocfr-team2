@@ -12,35 +12,13 @@ var membersExpCertsApp = new Vue({
       fetch('api/reports/membersExpCerts.php')
       .then(response => response.json())
       .then(json => { membersExpCertsApp.memExpCerts = json })
+    },displayWaitingLocalDate(d) {
+      return moment.utc(d).local().format("YYYY MMM Do");
     },
-    handleSubmit(event) {
-      // fetch('api/records/post.php', {
-      //   method:'POST',
-      //   body: JSON.stringify(this.recordMember),
-      //   headers: {
-      //     "Content-Type": "application/json; charset=utf-8"
-      //   }
-      // })
-      // .then( response => response.json() )
-      // .then( json => { memberRecordsApp.members.push(json[0]) })
-      // .catch( err => {
-      //   console.error('RECORD POST ERROR:');
-      //   console.error(err);
-      // })
-      // this.handleReset();
+    displayWaitingSince(d) {
+      return moment.utc(d).local().fromNow();
     },
-    handleReset() {
-      // this.recordMember = {
-      //   firstName: '',
-      //   lastName: '',
-      //   dob: '',
-      //   sexAtBirth: ''
-      // }
-    },
-    handleRowClick(member) {
-      // memberRecordsApp.member = member;
-    }
-  }, // end methods
+  },// end methods
   created() {
     //this.handleReset();
     this.fetchMembersExpCerts();

@@ -6,7 +6,7 @@ $db = DbConnection::getConnection();
 // Step 2: Create & run the query
 $stmt = $db->prepare ('SELECT *
   FROM Member AS M, CertificationStatus AS CS, Certification AS C
-  WHERE M.member_id = CS.member_id AND C.certification_id = CS.certification_id  ');
+  WHERE M.member_id = CS.member_id AND C.certification_id = CS.certification_id AND CS.date_of_exp < CURDATE() ');
 
 $stmt->execute();
 $membersExpCerts = $stmt->fetchAll();

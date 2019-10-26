@@ -9,7 +9,9 @@ var memCertApp = new Vue({
     membersForCertLoaded:false,
     filter: {
       cert_status: ''
-    }
+    },
+    expClass:'',
+
   },
   methods: {
     fetchCerts() {
@@ -19,6 +21,16 @@ var memCertApp = new Vue({
          memCertApp.certsNames = json;
          this.certLoading=false;
        })
+    },
+    checkIsActiveOrExpired(d){
+        if(moment(d).diff()>0){
+          this.expClass = 'activeCell';
+          return "Active";
+        }
+        else{
+          this.expClass = 'expCell';
+          return "Expired";
+        }
     },
     fetchMembersByCerts(selectedCertID){
       this.membersForCertLoaded=false;
@@ -33,6 +45,7 @@ var memCertApp = new Vue({
       .then( response => response.json() )
       .then( json => {
         memCertApp.memCerts.push(json[0]);
+        // this.checkIsActiveOrExpired();
         this.membersForCertLoaded = true;
        })
       .catch( err => {
@@ -40,7 +53,12 @@ var memCertApp = new Vue({
         console.error(err);
       });
 
-    }
+    },displayWaitingLocalDate(d) {
+      return moment.utc(d).local().format("YYYY MMM Do");
+    },
+    displayWaitingSince(d) {
+      return moment.utc(d).local().fromNow();
+    },
   },
   beforeMount() {
   //  this.fetchMembers();

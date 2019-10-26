@@ -24,16 +24,15 @@
     <div id="mainContent" class="col-md">
       <div id="membersExpCertsApp">
         <br>
-        <hr>
-        <div class="filter">
-              <select v-model="filter.certification_name">
-                <option value="">(all)</option>
-                <option>CFPS</option>
-                <option>CPR</option>
-                <option>CFI</option>
-                <option>EMT</option>
-                <option>POST</option>
-              </select>
+          <div v-show="!certLoading">
+            <div class="col-sm-6">
+              Choose Certification to Filter:  <select id="certName" class="select-css" v-model="filter.certification_name">
+                  <option v-for="cert in certsNames">
+                    {{ cert.certification_name }}
+                  </option>
+                </select>
+              <br><br>
+            </div>
           </div>
         <table class="table table-sm table-hover">
           <thead>
@@ -44,6 +43,7 @@
               <th>Certification Name</th>
               <th>Expiration Date</th>
               <th>Expiration Status</th>
+              <th>Status</th>
           </thead>
           <tbody>
             <tr v-for="mec in memExpCerts" @click="handleRowClick(mec)"
@@ -54,6 +54,7 @@
               <td> {{mec.certification_name}} </td>
               <td> {{displayWaitingLocalDate(mec.date_of_exp)}}</td>
               <td>{{ displayWaitingSince(mec.date_of_exp) }}</td>
+              <td :class="expClass"> {{checkIsActiveOrExpired(mec.date_of_exp)}}</td>
             </tr>
           </tbody>
         </table>

@@ -3,7 +3,16 @@
   background-color: rgb(255,230,230);
 } */
 
-
+.activeCell{
+  color: green;
+  font-weight: bold;
+  background-color: yellow;
+}
+.expCell{
+color: red;
+font-weight: bold;
+background-color: black;
+}
 .logoImage{
 height:90px;
 border-radius: 300px;

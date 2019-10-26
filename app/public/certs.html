@@ -24,6 +24,11 @@
       <div id="mainContent" class="col-md">
         <div id="certsRecordsApp">
 
+
+          <div class = "card">
+            <div class="card-header">
+              New Certification Form
+            </div>
           <form @submit.prevent="handleSubmit">
             <div class="form-group row">
               <label for="inputCertName" class="col-sm-2 col-form-label">Certification Name</label>
@@ -31,6 +36,7 @@
                 <input type="text" class="form-control" id="inputCertName" placeholder="e.g. HAZMAT" v-model="recordCert.certification_name">
               </div>
             </div>
+
 
             <div class="form-group row">
               <label for="inputCertAgency" class="col-sm-2 col-form-label">Certifying Agency</label>
@@ -53,6 +59,7 @@
               </div>
             </div>
           </form>
+        </div>
 <br><hr>
           <table class="table table-sm table-hover">
             <thead>

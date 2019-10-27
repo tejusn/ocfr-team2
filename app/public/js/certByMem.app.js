@@ -48,14 +48,19 @@ var certMemApp = new Vue({
       return moment.utc(d).local().fromNow();
     },
     checkIsActiveOrExpired(d){
+      let expCls = '';
+      let statusText = '';
             if(moment(d).diff()>0){
-              this.expClass = 'activeCell';
-              return "Active";
+              expCls = 'activeCell';
+              statusText ="Active";
             }
             else{
-              this.expClass = 'expCell';
-              return "Expired";
+              expCls = 'expCell';
+              statusText ="Expired";
             }
+          //  this.expClass = expCls;
+            return statusText;
+
         },
   },
   beforeMount() {

@@ -28,9 +28,6 @@ Vue.component('page-header', {
                         <a class="nav-link" href="assignCert.html" tabindex="-1" aria-disabled="true">Assign Certification</a>
                       </li> -->
 
-
-
-
                     <li class="nav-item dropdown dropdown-animate">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Certifications</a>
                         <div class="dropdown-menu">

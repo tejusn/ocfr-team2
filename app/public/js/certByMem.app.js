@@ -33,7 +33,7 @@ var certMemApp = new Vue({
       })
       .then( response => response.json() )
       .then( json => {
-        certMemApp.certsMem.push(json[0]);
+        certMemApp.certsMem=json;
         this.certsForMemberLoaded = true;
        })
       .catch( err => {

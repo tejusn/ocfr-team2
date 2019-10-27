@@ -44,7 +44,7 @@ var memCertApp = new Vue({
       })
       .then( response => response.json() )
       .then( json => {
-        memCertApp.memCerts.push(json[0]);
+        memCertApp.memCerts=json;
         // this.checkIsActiveOrExpired();
         this.membersForCertLoaded = true;
        })

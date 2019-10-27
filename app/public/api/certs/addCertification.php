@@ -20,7 +20,7 @@ $stmt->execute([
   //$_POST['certification_id'],
   $_POST['certification_name'],
   $_POST['certifying_agency'],
-  $_POST['default_exp_period'],
+  $_POST['default_exp_period_months'],
 ]);
 
 // Step 4: Output

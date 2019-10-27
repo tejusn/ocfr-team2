@@ -21,7 +21,10 @@ var certsRecordsApp = new Vue({
           }
         })
         .then( response => response.json() )
-        .then( json => { certsRecordsApp.certs.push(json[0])})
+        .then( json => { certsRecordsApp.certs.push(json[0])
+          alert("Cert Addition Successful")
+            location.reload();
+        })
         .catch( err => {
           console.error('Cert Add POST ERROR:');
           console.error(err);
@@ -38,7 +41,9 @@ var certsRecordsApp = new Vue({
         .then( response => response.json() )
         .then( json => {
           // certsRecordsApp.certs.push(json[0])
-          console.log("Cert Deletion Successful")
+          console.log("Certification updation Successful")
+            location.reload();
+          alert("Certification Edit Successful")
         })
         .catch( err => {
           console.error('Cert Update POST ERROR:');
@@ -66,7 +71,10 @@ var certsRecordsApp = new Vue({
         }
       })
       .then( response => response.json() )
-      .then( json => { certsRecordsApp.certs.push(json[0]) })
+      .then( json => { certsRecordsApp.certs.push(json[0])
+      alert("Cert Deletion Successful");
+      location.reload();
+    })
       .catch( err => {
         console.error('Certification Delete POST ERROR:');
         console.error(err);

@@ -10,7 +10,7 @@ $db = DbConnection::getConnection();
 // Step 2: Create & run the query
 $stmt = $db->prepare(
   'UPDATE Certification SET
-    certification_name = ?, certifying_agency = ?, default_exp_period = ?
+    certification_name = ?, certifying_agency = ?, default_exp_period_months = ?
   WHERE certification_id = ?'
 );
 
@@ -18,7 +18,7 @@ $stmt = $db->prepare(
 $stmt->execute([
   $_POST['certification_name'],
   $_POST['certifying_agency'],
-  $_POST['default_exp_period'],
+  $_POST['default_exp_period_months'],
   $_POST['certification_id'],
 ]);
 

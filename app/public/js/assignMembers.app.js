@@ -36,6 +36,7 @@ var assignCertsApp = new Vue({
       })
       .then( response => response.json() )
       .then( json => {
+        alert("Certification Assigned")
       //  assignCertsApp.certs.push(json[0])
       })
       .catch( err => {

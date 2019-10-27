@@ -21,7 +21,10 @@ var memberRecordsApp = new Vue({
           }
         })
         .then( response => response.json() )
-        .then( json => { memberRecordsApp.members.push(json[0])})
+        .then( json => {
+          memberRecordsApp.members.push(json[0])
+            this.handleReset();
+        })
         .catch( err => {
           console.error('Member Add POST ERROR:');
           console.error(err);
@@ -36,7 +39,10 @@ var memberRecordsApp = new Vue({
           }
         })
         .then( response => response.json() )
-        .then( json => { memberRecordsApp.members.push(json[0]) })
+        .then( json => {
+          memberRecordsApp.members.push(json[0]);
+            this.handleReset();
+         })
         .catch( err => {
           console.error('Member Update POST ERROR:');
           console.error(err);
@@ -61,7 +67,10 @@ var memberRecordsApp = new Vue({
         }
       })
       .then( response => response.json() )
-      .then( json => { memberRecordsApp.members.push(json[0]) })
+      .then( json => {
+        // memberRecordsApp.members.push(json[0])
+        console.log('Deletion Successful');
+      })
       .catch( err => {
         console.error('Member Delete POST ERROR:');
         console.error(err);

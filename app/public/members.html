@@ -135,12 +135,12 @@
               <th>Station</th>
               <th>Active Status</th>
               <th>Radio Number</th>
-              <th> Edit </th>
-              <th> Delete </th>
+              <!-- <th> Edit </th>
+              <th> Delete </th> -->
 
           </thead>
           <tbody>
-            <!-- <tr v-for="m in members" @click="handleRowClick(m)"> -->
+
             <tr v-for="m in members">
               <td> {{m.member_id}} </td>
               <td> {{m.first_name}} </td>
@@ -149,13 +149,59 @@
               <td> {{m.station}}</td>
               <td> {{m.is_active}} </td>
               <td> {{m.radio_number}} </td>
+              <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">View More Details</button></td>
               <td><button v-on:click="updateMember(m)" class="btn btn-primary">Edit</button> </td>
               <td><button v-on:click="deleteMember(m)" class="btn btn-primary">Delete</button></td>
             </tr>
           </tbody>
         </table>
-
+        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="More Details" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Member Details</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <table class="table table-sm table-hover">
+                <thead>
+                  <tr>
+                    <th>Member ID</th>
+                    <th>First</th>
+                    <th>Last</th>
+                    <th>Position</th>
+                    <th>Station</th>
+                    <th>Active Status</th>
+                    <th>Radio Number</th>
+                    <th>Date Of Birth</th>
+                    <th>Gender</th>
+                    <th>Email</th>
+                    <th>Mobile Phone</th>
+                    <th>Work Phone</th>
+                </thead>
+                <tbody>
+                  <tr v-for="m in members">
+                    <td> {{m.member_id}} </td>
+                    <td> {{m.first_name}} </td>
+                    <td> {{m.last_name}} </td>
+                    <td> {{m.position}} </td>
+                    <td> {{m.station}}</td>
+                    <td> {{m.is_active}} </td>
+                    <td> {{m.radio_number}} </td>
+                    <td> {{m.dob}} </td>
+                    <td> {{m.email}} </td>
+                    <td> {{m.gender}} </td>
+                    <td> {{m.mobile_phone}} </td>
+                    <td> {{m.work_phone}} </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
       </div>
+
       <div id="ftr">
         <page-footer></page-footer>
       </div>

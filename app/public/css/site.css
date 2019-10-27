@@ -6,7 +6,7 @@
 .activeCell{
   color: green;
   font-weight: bold;
-  background-color: yellow;
+  background-color: lightyellow;
 }
 .expCell{
 color: red;
@@ -117,7 +117,7 @@ width:93px;
 }
 .modal-content{
   margin-left: -110px;
-  width:125%!important;
+  width:138%!important;
 }
 #ftr > footer > div > div> ul > li > a{
     text-decoration: none;
@@ -131,7 +131,7 @@ width:93px;
 }
 
 button.btn.btn-primary.row{
-  float: right;
+float: right;
 margin-right: 395px;
 width: 312px;
 padding: 12px;

@@ -26,6 +26,7 @@
           <div v-show="!certLoading">
             <div class="col-sm-6">
               Choose Certification to Filter:  <select id="certName" class="select-css" v-model="filter.certification_name">
+                  <option value="">(all)</option>
                   <option v-for="cert in certsNames">
                     {{ cert.certification_name }}
                   </option>

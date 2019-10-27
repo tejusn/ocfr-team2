@@ -24,7 +24,8 @@ var memberRecordsApp = new Vue({
         .then( json => {
           memberRecordsApp.members.push(json[0])
             this.handleReset();
-            alert("Member Addition Successful")
+            alert("Member Addition Successful");
+              location.reload();
         })
         .catch( err => {
           console.error('Member Add POST ERROR:');
@@ -45,6 +46,7 @@ var memberRecordsApp = new Vue({
 
             this.handleReset();
             alert("Member Edit Successful")
+              location.reload();
          })
         .catch( err => {
           console.error('Member Update POST ERROR:');
@@ -73,7 +75,8 @@ var memberRecordsApp = new Vue({
       .then( json => {
         // memberRecordsApp.members.push(json[0])
         console.log('Deletion Successful');
-        alert("Member Deletion Successful")
+        alert("Member Deletion Successful");
+          location.reload();
       })
       .catch( err => {
         console.error('Member Delete POST ERROR:');

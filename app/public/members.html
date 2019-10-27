@@ -124,7 +124,7 @@
         </div>
         <br>
         <hr>
-
+<button type="button" class="btn btn-primary row" data-toggle="modal" data-target=".bd-example-modal-lg">View All Member Details</button>
         <table class="table table-sm table-hover">
           <thead>
             <tr>
@@ -149,7 +149,7 @@
               <td> {{m.station}}</td>
               <td> {{m.is_active}} </td>
               <td> {{m.radio_number}} </td>
-              <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">View More Details</button></td>
+              <!-- <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">View More Details</button></td> -->
               <td><button v-on:click="updateMember(m)" class="btn btn-primary">Edit</button> </td>
               <td><button v-on:click="deleteMember(m)" class="btn btn-primary">Delete</button></td>
             </tr>
@@ -200,7 +200,7 @@
             </div>
           </div>
         </div>
-      </div>
+      
 
       <div id="ftr">
         <page-footer></page-footer>

@@ -3,7 +3,7 @@ Vue.component('page-header', {
                 <!-- Fixed navbar -->
                               <nav class="navbar navbar-main navbar-expand-lg navbar-sticky navbar-dark bg-dark">
                   <a class="navbar-brand nav-brand-margin" href="index.html">
-                    <img class="logoImage" src="../img/OCFR-logo1.jpg">     Oconee County Fire Rescue
+                    <img class="logoImage" src="../img/OCFR_logo1.jpg">     Oconee County Fire Rescue
                   </a>
                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -21,12 +21,12 @@ Vue.component('page-header', {
                       </li>
                       <li class="nav-item">
                         <a class="nav-link" href="members.html" tabindex="-1" aria-disabled="true">Members</a>
-                      </li>
+                      </li>-->>
 
 
                       <li class="nav-item">
                         <a class="nav-link" href="assignCert.html" tabindex="-1" aria-disabled="true">Assign Certification</a>
-                      </li> -->
+                      </li>
 
                     <li class="nav-item dropdown dropdown-animate">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Certifications</a>

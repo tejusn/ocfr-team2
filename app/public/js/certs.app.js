@@ -36,7 +36,10 @@ var certsRecordsApp = new Vue({
           }
         })
         .then( response => response.json() )
-        .then( json => { certsRecordsApp.certs.push(json[0]) })
+        .then( json => {
+          // certsRecordsApp.certs.push(json[0])
+          console.log("Cert Deletion Successful")
+        })
         .catch( err => {
           console.error('Cert Update POST ERROR:');
           console.error(err);

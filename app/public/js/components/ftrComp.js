@@ -2,7 +2,7 @@ Vue.component('page-footer', {
   	template: `<footer class="container py-5">
                   <div class="row">
                     <div class="col-12 col-md">
-                      <img class="logoImageFooter" src="../img/OCFR-logo1.jpg">
+                      <img class="logoImageFooter" src="../img/OCFR_logo1.jpg">
                       <small class="d-block mb-3 text-muted">&copy; 2017-2019</small>
                     </div>
                     <div class="col-6 col-md">
